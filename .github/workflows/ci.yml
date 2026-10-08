@@ -1,0 +1,32 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Compile Source Code
+      run: javac src/*.java -d bin
+
+    - name: Compile Tests
+      run: javac -cp bin test/*.java -d bin
+
+    - name: Run Tests
+      run: java -enableassertions -cp bin PromptOptimizerTest
+
+    - name: Run Main Demo
+      run: java -cp bin Main
