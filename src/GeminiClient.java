@@ -5,7 +5,7 @@ import java.net.http.HttpResponse;
 
 public class GeminiClient {
 
-private static final String MODEL = "gemini-2.0-flash";
+private static final String MODEL = "gemini-3.8-flash";
 
     public static String generate(String apiKey, String prompt) throws Exception {
         String endpoint = "https://generativelanguage.googleapis.com/v1beta/models/" 
