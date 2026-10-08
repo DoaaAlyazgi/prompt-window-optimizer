@@ -1,4 +1,5 @@
 # Prompt Window Optimizer
+[![Java CI](https://github.com/DoaaAlyazgi/prompt-window-optimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/DoaaAlyazgi/prompt-window-optimizer/actions/workflows/ci.yml)
 
 A high-performance Java engine that optimizes LLM prompt contexts using classic algorithmic paradigms (**Prefix Sum** and **Sliding Window**). It guarantees $O(1)$ token range queries and $O(N)$ optimal window selection while strictly preserving critical instructions (`PINNED` system prompts and user queries).
 
