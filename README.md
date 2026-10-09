@@ -112,3 +112,5 @@ In integration tests with `gemini-3.8-flash`, the optimizer dynamically pruned c
 ```bash
 git clone [https://github.com/DoaaAlyazgi/prompt-window-optimizer.git](https://github.com/DoaaAlyazgi/prompt-window-optimizer.git)
 cd prompt-window-optimizer
+
+![Architecture Diagram](context_window_optimization_isometric.svg)
