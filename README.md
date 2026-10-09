@@ -16,4 +16,33 @@ Sending full conversational histories to LLMs introduces critical engineering is
 
 The engine acts as an in-memory optimization filter before requests hit the LLM endpoint:
 
-
+```text
+                      +---------------------------------------+
+                      | Raw Conversation History (500+ Tokens) |
+                      +-------------------+-------------------+
+                                          |
+                                          v
+                      +---------------------------------------+
+                      |       Prompt Window Optimizer         |
+                      |   [Dynamic Sliding Window Engine]     |
+                      +-------------------+-------------------+
+                                          |
+                      +-------------------+-------------------+
+                      |                                       |
+                      v                                       v
+         [Permanent System Context]               [Token Budget Pruner]
+         * Core instructions kept               * Trims older turns
+         * Never evicted                        * Retains recent turns
+                      |                                       |
+                      +-------------------+-------------------+
+                                          |
+                                          v
+                      +---------------------------------------+
+                      | Optimized Request Payload (97 Tokens) |
+                      +-------------------+-------------------+
+                                          |
+                                          v
+                      +---------------------------------------+
+                      |        Google Gemini API Client       |
+                      |          (gemini-3.8-flash)           |
+                      +---------------------------------------+
